@@ -1,10 +1,11 @@
-# Tailwind CSS content paths - use absolute to avoid Windows symlink issues
-module.exports = {
-  content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+/** @type {import('tailwindcss').Config} */
+export default {
+  // Disable content scanning to avoid Windows symlink issues
+  // We'll use utility classes directly in CSS
+  content: [],
+  corePlugins: {
+    preflight: false,
+  },
   theme: {
     extend: {
       fontFamily: {
