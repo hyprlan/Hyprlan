@@ -1,8 +1,14 @@
+# Netlify configuration for Next.js static export
 [build]
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   SKIP_ENV_VALIDATION = "1"
-  NEXT_PRIVATE_STANDALONE = "true"
+  NEXT_TELEMETRY_DISABLED = "1"
 
+# Handle SPA routing - redirect all requests to index.html for static export
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
