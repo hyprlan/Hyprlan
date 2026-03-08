@@ -1,6 +1,6 @@
 # Netlify configuration for Next.js static export
 [build]
-  command = "npm run build"
+  command = "npm run build --ignore-scripts"
   publish = "out"
 
 [build.environment]
