@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyprlan — The Premier Hackathon for Builders</title>
+    <meta name="description" content="Hyprlan is a premier hackathon community event bringing together developers, designers, and innovators to build the future. Join us for an unforgettable 48-hour experience in Bangalore, India.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background-color: #0a0a0f;
+            color: #f5f5f5;
+            font-family: 'Inter', system-ui, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+        
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(167, 139, 250, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse 50% 30% at 20% 80%, rgba(96, 165, 250, 0.1) 0%, transparent 40%);
+            z-index: 0;
+        }
+        
+        .hero-pattern {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            z-index: 0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+        
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            overflow: hidden;
+            margin: 0 auto 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .hero-location {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .hero-dates {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #f5f5f5;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-venue {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: #a1a1aa;
+            margin-bottom: 2rem;
+        }
+        
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: #d4d4d8;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Sections */
+        .what-is-section {
+            background: linear-gradient(180deg, transparent 0%, rgba(102, 126, 234, 0.05) 50%, transparent 100%);
+            padding: 8rem 2rem;
+        }
+        
+        .what-is-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .what-is-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+        
+        .what-is-text {
+            font-size: 1.25rem;
+            color: #d4d4d8;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Tracks Section */
+        .tracks-section {
+            padding: 6rem 2rem;
+            background: #0a0a0f;
+        }
+        
+        .tracks-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .tracks-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .section-description {
+            font-size: 1.125rem;
+            color: #a1a1aa;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .tracks-scroll {
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .track-card {
+            flex: 0 0 350px;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .track-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(102, 126, 234, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .track-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .track-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #f5f5f5;
+        }
+        
+        .track-description {
+            color: #a1a1aa;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .track-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .track-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            color: #a1a1aa;
+        }
+        
+        /* Prizes Section */
+        .prizes-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, transparent 0%, rgba(118, 75, 162, 0.05) 50%, transparent 100%);
+        }
+        
+        .prizes-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+        
+        .prizes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .prize-card {
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .prize-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .prize-card.gold { border-color: rgba(251, 191, 36, 0.3); }
+        .prize-card.silver { border-color: rgba(148, 163, 184, 0.3); }
+        .prize-card.bronze { border-color: rgba(180, 83, 9, 0.3); }
+        
+        .prize-emoji { font-size: 3rem; margin-bottom: 1rem; }
+        
+        .prize-rank {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a1a1aa;
+            margin-bottom: 0.5rem;
+        }
+        
+        .prize-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+        
+        .prize-card.gold .prize-amount { color: #fbbf24; }
+        .prize-card.silver .prize-amount { color: #94a3b8; }
+        .prize-card.bronze .prize-amount { color: #b45309; }
+        
+        .prize-perks {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .prize-perks li {
+            padding: 0.5rem 0;
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .prize-perks li:last-child { border-bottom: none; }
+        
+        /* Schedule Section */
+        .schedule-section {
+            padding: 6rem 2rem;
+            background: #0a0a0f;
+        }
+        
+        .schedule-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #ffffff;
+        }
+        
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .schedule-tab {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: #a1a1aa;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .schedule-tab:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #f5f5f5;
+        }
+        
+        .schedule-tab.active {
+            background: rgba(102, 126, 234, 0.2);
+            border-color: rgba(102, 126, 234, 0.5);
+            color: #f5f5f5;
+        }
+        
+        .schedule-timeline {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .schedule-item:last-child { border-bottom: none; }
+        
+        .schedule-time {
+            font-weight: 600;
+            color: #667eea;
+            min-width: 100px;
+        }
+        
+        .schedule-event-title {
+            color: #f5f5f5;
+            font-weight: 500;
+            flex: 1;
+            padding: 0 1rem;
+        }
+        
+        .schedule-event-type {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            color: #a1a1aa;
+        }
+        
+        /* Footer */
+        .footer {
+            padding: 4rem 2rem;
+            background: #050507;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .footer-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .footer-description {
+            color: #71717a;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .footer-section h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #f5f5f5;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li { margin-bottom: 0.5rem; }
+        
+        .footer-links a {
+            color: #a1a1aa;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+        
+        .footer-links a:hover { color: #f5f5f5; }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: #a1a1aa;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        
+        .footer-social a:hover {
+            background: rgba(102, 126, 234, 0.2);
+            color: #f5f5f5;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: #52525b;
+            font-size: 0.875rem;
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #18181b;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #3f3f46;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-pattern"></div>
+        
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="logo.jpeg" alt="Hyprlan Logo">
+            </div>
+            
+            <p class="hero-location">Bangalore, India</p>
+            <p class="hero-dates">April 18–20, 2025</p>
+            
+            <div class="hero-venue">
+                <span>📍</span>
+                <span>Jio World Centre, Bangalore</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="gradient-text">Hyprlan</span>
+            </h1>
+            
+            <p class="hero-tagline">
+                A 48-hour hackathon where 500+ builders, designers, and innovators come together to turn ideas into reality.
+            </p>
+            
+            <a href="#register" class="hero-cta">Register for Free →</a>
+        </div>
+    </section>
+    
+    <!-- What is Hyprlan -->
+    <section class="what-is-section">
+        <div class="what-is-content">
+            <h2 class="what-is-title">What is Hyprlan?</h2>
+            <p class="what-is-text">
+                Hyprlan is a 48-hour hackathon dedicated to empowering students by helping them learn, build, and actively participate in hackathons. Our mission is to foster innovation, collaboration, and practical skill development among the next generation of creators.
+            </p>
+            <p class="what-is-text">
+                We believe that hackathons are one of the best environments for students to gain hands-on engineering experience, meet like-minded peers, and build meaningful projects. Whether you're a first-time hacker or a seasoned developer, Hyprlan provides the platform and community resources to make this journey accessible, educational, and engaging for everyone.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Tracks -->
+    <section class="tracks-section">
+        <div class="tracks-header">
+            <h2 class="tracks-title">Hackathon Tracks</h2>
+            <p class="section-description">
+                Six specialized tracks designed to push boundaries. Each track comes with dedicated mentors, curated APIs, and track-specific prizes.
+            </p>
+        </div>
+        
+        <div class="tracks-scroll">
+            <div class="track-card">
+                <div class="track-icon" style="background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.3);">🤖</div>
+                <h3 class="track-title">AI / ML</h3>
+                <p class="track-description">Build intelligent systems, predictive models, and next-gen AI-powered applications that solve real-world challenges.</p>
+                <div class="track-tags">
+                    <span class="track-tag">LLMs</span>
+                    <span class="track-tag">Computer Vision</span>
+                    <span class="track-tag">NLP</span>
+                    <span class="track-tag">MLOps</span>
+                </div>
+            </div>
+            
+            <div class="track-card">
+                <div class="track-icon" style="background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.3);">⛓️</div>
+                <h3 class="track-title">Web3 & DeFi</h3>
+                <p class="track-description">Create decentralized applications, smart contracts, DeFi protocols, and blockchain-powered solutions.</p>
+                <div class="track-tags">
+                    <span class="track-tag">Smart Contracts</span>
+                    <span class="track-tag">DApps</span>
+                    <span class="track-tag">DeFi</span>
+                    <span class="track-tag">NFTs</span>
+                </div>
+            </div>
+            
+            <div class="track-card">
+                <div class="track-icon" style="background: rgba(34, 197, 94, 0.2); border: 1px solid rgba(34, 197, 94, 0.3);">🌱</div>
+                <h3 class="track-title">Sustainability</h3>
+                <p class="track-description">Tackle climate change, energy efficiency, and environmental challenges with technology-driven green solutions.</p>
+                <div class="track-tags">
+                    <span class="track-tag">Clean Tech</span>
+                    <span class="track-tag">Carbon</span>
+                    <span class="track-tag">Energy</span>
+                    <span class="track-tag">ESG</span>
+                </div>
+            </div>
+            
+            <div class="track-card">
+                <div class="track-icon" style="background: rgba(245, 158, 11, 0.2); border: 1px solid rgba(245, 158, 11, 0.3);">📚</div>
+                <h3 class="track-title">EdTech</h3>
+                <p class="track-description">Revolutionize how people learn with adaptive learning platforms, gamification, and accessible educational tools.</p>
+                <div class="track-tags">
+                    <span class="track-tag">e-Learning</span>
+                    <span class="track-tag">Gamification</span>
+                    <span class="track-tag">VR/AR</span>
+                    <span class="track-tag">Accessibility</span>
+                </div>
+            </div>
+            
+            <div class="track-card">
+                <div class="track-icon" style="background: rgba(6, 182, 212, 0.2); border: 1px solid rgba(6, 182, 212, 0.3);">💊</div>
+                <h3 class="track-title">HealthTech</h3>
+                <p class="track-description">Improve healthcare delivery, patient outcomes, and medical research through innovative digital health solutions.</p>
+                <div class="track-tags">
+                    <span class="track-tag">Telemedicine</span>
+                    <span class="track-tag">Wearables</span>
+                    <span class="track-tag">AI Diagnosis</span>
+                    <span class="track-tag">Health Data</span>
+                </div>
+            </div>
+            
+            <div class="track-card">
+                <div class="track-icon" style="background: rgba(236, 72, 153, 0.2); border: 1px solid rgba(236, 72, 153, 0.3);">🚀</div>
+                <h3 class="track-title">Open Innovation</h3>
+                <p class="track-description">No limits. Build whatever excites you — IoT, gaming, developer tools, productivity apps, or something totally new.</p>
+                <div class="track-tags">
+                    <span class="track-tag">IoT</span>
+                    <span class="track-tag">Gaming</span>
+                    <span class="track-tag">DevTools</span>
+                    <span class="track-tag">Productivity</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Prizes -->
+    <section class="prizes-section">
+        <h2 class="prizes-title">Win Big</h2>
+        <div class="prizes-grid">
+            <div class="prize-card gold">
+                <div class="prize-emoji">🥇</div>
+                <p class="prize-rank">1st Place</p>
+                <p class="prize-amount">₹1,00,000</p>
+                <ul class="prize-perks">
+                    <li>Amazon Gift Cards</li>
+                    <li>Internship Fast-Track</li>
+                    <li>Trophy + Certificate</li>
+                    <li>Lifetime Alumni Access</li>
+                </ul>
+            </div>
+            
+            <div class="prize-card silver">
+                <div class="prize-emoji">🥈</div>
+                <p class="prize-rank">2nd Place</p>
+                <p class="prize-amount">₹60,000</p>
+                <ul class="prize-perks">
+                    <li>Amazon Gift Cards</li>
+                    <li>Interview Opportunity</li>
+                    <li>Silver Trophy</li>
+                    <li>Community Recognition</li>
+                </ul>
+            </div>
+            
+            <div class="prize-card bronze">
+                <div class="prize-emoji">🥉</div>
+                <p class="prize-rank">3rd Place</p>
+                <p class="prize-amount">₹30,000</p>
+                <ul class="prize-perks">
+                    <li>Amazon Gift Cards</li>
+                    <li>Bronze Trophy</li>
+                    <li>Mentorship Session</li>
+                    <li>LinkedIn Feature</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Schedule -->
+    <section class="schedule-section">
+        <h2 class="schedule-title">48 Hours of Action</h2>
+        
+        <div class="schedule-tabs">
+            <button class="schedule-tab active" onclick="showSchedule(0)">Day 1 — April 18</button>
+            <button class="schedule-tab" onclick="showSchedule(1)">Day 2 — April 19</button>
+            <button class="schedule-tab" onclick="showSchedule(2)">Day 3 — April 20</button>
+        </div>
+        
+        <div class="schedule-timeline" id="schedule">
+            <div class="schedule-item">
+                <span class="schedule-time">09:00 AM</span>
+                <span class="schedule-event-title">Check-in & Registration</span>
+                <span class="schedule-event-type">Logistics</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">10:30 AM</span>
+                <span class="schedule-event-title">Opening Ceremony & Keynote</span>
+                <span class="schedule-event-type">Keynote</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">12:00 PM</span>
+                <span class="schedule-event-title">Team Formation Activity</span>
+                <span class="schedule-event-type">Networking</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">01:00 PM</span>
+                <span class="schedule-event-title">Hacking Begins!</span>
+                <span class="schedule-event-type">Hack</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">03:00 PM</span>
+                <span class="schedule-event-title">Workshop: Building with AI APIs</span>
+                <span class="schedule-event-type">Workshop</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">06:00 PM</span>
+                <span class="schedule-event-title">Dinner + Mentor Office Hours</span>
+                <span class="schedule-event-type">Networking</span>
+            </div>
+            <div class="schedule-item">
+                <span class="schedule-time">09:00 PM</span>
+                <span class="schedule-event-title">Midnight Snacks & Gaming Break</span>
+                <span class="schedule-event-type">Social</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="logo.jpeg" alt="Hyprlan Logo">
+                </div>
+                <p class="footer-description">
+                    Hyprlan is a dedicated hackathon community designed to empower students by helping them learn, build, and actively participate in hackathons.
+                </p>
+                <div class="footer-social">
+                    <a href="https://twitter.com/hyprlan" aria-label="Twitter">𝕏</a>
+                    <a href="https://discord.gg/hyprlan" aria-label="Discord">💬</a>
+                    <a href="https://github.com/hyprlan" aria-label="GitHub">⬡</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Event</h4>
+                <ul class="footer-links">
+                    <li><a href="#tracks">Tracks</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#prizes">Prizes</a></li>
+                    <li><a href="#register">Register</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Community</h4>
+                <ul class="footer-links">
+                    <li><a href="https://discord.gg/hyprlan">Discord</a></li>
+                    <li><a href="https://twitter.com/hyprlan">Twitter</a></li>
+                    <li><a href="https://github.com/hyprlan">GitHub</a></li>
+                    <li><a href="mailto:hello@hyprlan.dev">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:hello@hyprlan.dev">hello@hyprlan.dev</a></li>
+                    <li><a href="mailto:sponsors@hyprlan.dev">sponsors@hyprlan.dev</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Hyprlan. All rights reserved. Built with passion by hackers, for hackers.</p>
+        </div>
+    </footer>
+    
+    <script>
+        const schedules = [
+            [
+                { time: "09:00 AM", title: "Check-in & Registration", type: "Logistics" },
+                { time: "10:30 AM", title: "Opening Ceremony & Keynote", type: "Keynote" },
+                { time: "12:00 PM", title: "Team Formation Activity", type: "Networking" },
+                { time: "01:00 PM", title: "Hacking Begins!", type: "Hack" },
+                { time: "03:00 PM", title: "Workshop: Building with AI APIs", type: "Workshop" },
+                { time: "06:00 PM", title: "Dinner + Mentor Office Hours", type: "Networking" },
+                { time: "09:00 PM", title: "Midnight Snacks & Gaming Break", type: "Social" }
+            ],
+            [
+                { time: "07:00 AM", title: "Breakfast & Health Break", type: "Logistics" },
+                { time: "09:00 AM", title: "Workshop: Pitching Like a Pro", type: "Workshop" },
+                { time: "12:00 PM", title: "Halfway Check-in with Mentors", type: "Hack" },
+                { time: "02:00 PM", title: "Workshop: UI/UX for Hackers", type: "Workshop" },
+                { time: "06:00 PM", title: "Hacking Ends — Submission Deadline", type: "Hack" },
+                { time: "07:30 PM", title: "Project Demonstrations", type: "Demo" }
+            ],
+            [
+                { time: "10:00 AM", title: "Finals Round — Top 10 Teams", type: "Demo" },
+                { time: "01:00 PM", title: "Judges Deliberation", type: "Logistics" },
+                { time: "02:00 PM", title: "Awards Ceremony & Closing", type: "Keynote" },
+                { time: "03:30 PM", title: "Networking & Farewell", type: "Networking" }
+            ]
+        ];
+        
+        function showSchedule(day) {
+            const schedule = schedules[day];
+            const container = document.getElementById('schedule');
+            container.innerHTML = schedule.map(item => `
+                <div class="schedule-item">
+                    <span class="schedule-time">${item.time}</span>
+                    <span class="schedule-event-title">${item.title}</span>
+                    <span class="schedule-event-type">${item.type}</span>
+                </div>
+            `).join('');
+            
+            document.querySelectorAll('.schedule-tab').forEach((tab, i) => {
+                tab.classList.toggle('active', i === day);
+            });
+        }
+    </script>
+</body>
+</html>
