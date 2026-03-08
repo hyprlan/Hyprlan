@@ -1,9 +1,9 @@
 /** @type {import("next").NextConfig} */
-const config = {
-  output: 'export',
+const nextConfig = {
+  output: "export",
   images: {
     unoptimized: true,
   },
 };
 
-export default config;
+module.exports = nextConfig;
